@@ -3,56 +3,66 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import { Card, CardMedia, CardTitle } from 'material-ui/Card';
-import { GridList, GridTile } from 'material-ui/GridList';
+// import { GridList, GridTile } from 'material-ui/GridList';
 import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
 
 const brand = require('./images/brand_and_logo.png');
+
+const tilesData = [
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Breakfast',
+    author: 'jill111',
+  },
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Tasty burger',
+    author: 'pashminu',
+  },
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Camera',
+    author: 'Danson67',
+  },
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Morning',
+    author: 'fancycrave1',
+  },
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Hats',
+    author: 'Hans',
+  },
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Honey',
+    author: 'fancycravel',
+  },
+  {
+    img: 'http://via.placeholder.com/350x150',
+    title: 'Vegetables',
+    author: 'jill111',
+  }
+];
+
+const style = {
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
+
 class App extends React.Component<{}, {}> {
   render() {
-    const tilesData = [
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Breakfast',
-        author: 'jill111',
-      },
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Tasty burger',
-        author: 'pashminu',
-      },
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Camera',
-        author: 'Danson67',
-      },
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Morning',
-        author: 'fancycrave1',
-      },
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Hats',
-        author: 'Hans',
-      },
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Honey',
-        author: 'fancycravel',
-      },
-      {
-        img: 'http://via.placeholder.com/350x150',
-        title: 'Vegetables',
-        author: 'jill111',
-      }
-    ];
+   
     return (
       <MuiThemeProvider>
 
         <div className="App">
           <AppBar
             iconClassNameRight="muidocs-icon-navigation-expand-more"
-            iconElementRight={<FlatButton label="Event Submission" href="https://goo.gl/forms/8tX501I2vQdL7Xn62"/>}
+            iconElementRight={<FlatButton label="Event Submission" href="https://goo.gl/forms/8tX501I2vQdL7Xn62" />}
           />
           <Card>
             <CardMedia
@@ -85,31 +95,25 @@ class App extends React.Component<{}, {}> {
               <img src={brand} alt="" />
             </CardMedia>
           </Card>
-          <GridList
-            cellHeight={180}
-            padding={10}
-            style={{
-              margin:10
-            }}
-          >
+          {this.renderCards()}
 
-            {tilesData.map((tile) => (
-
-              <GridTile
-                key={tile.title}
-                title={tile.title}
-                subtitle={<span>by <b>{tile.author}</b></span>}
-              >
-
-                <img src={tile.img} />
-
-              </GridTile>
-
-            ))}
-          </GridList>
         </div>
       </MuiThemeProvider>
     );
+  }
+
+  renderCards() {
+    return tilesData.map(t => {
+      return (
+        <Paper zDepth={2} style={style} key={t.author}>
+          <div>
+            <img src={t.img} />
+            <div>{t.title}</div>
+            <div>{t.author}</div>
+          </div>
+        </Paper>
+      )
+    });
   }
 }
 
