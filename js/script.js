@@ -257,7 +257,7 @@ $(document).ready(function() {
         }
         if (name && emaild && message) {
             $.ajax({
-                url: 'contact.php',
+                url: 'https://zhmail.azurewebsites.net/api/techeventEmail?code=zvOpcwFL0pMQn/6dbyXVDYyAztz4PaLp87/ftSIsqElL7jago96szQ==',
                 data: {
                     name: name,
                     emaild: emaild,
