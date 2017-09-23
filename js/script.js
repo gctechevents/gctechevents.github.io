@@ -258,12 +258,12 @@ $(document).ready(function() {
         if (name && emaild && message) {
             $.ajax({
                 url: 'https://zhmail.azurewebsites.net/api/techeventEmail?code=zvOpcwFL0pMQn/6dbyXVDYyAztz4PaLp87/ftSIsqElL7jago96szQ==',
-                data: {
+                data:JSON.stringify( {
                     name: name,
                     emaild: emaild,
                     subject: subject,
                     message: message
-                },
+                }),
                 dataType: "json",
                 contentType: "application/json",
                 type: 'POST',
