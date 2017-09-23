@@ -280,6 +280,22 @@ $(document).ready(function() {
                     $("#email").val("");
                     $("#subject").val("");
                     $("#message").val("");
+                },
+                error: function (err) {
+                    if (err.status === 200) {
+                        $(".Sucess").show();
+                        $(".Sucess").fadeIn(2000);
+                        $(".Sucess").html("<i class='fa fa-check'></i> Dear <b>" + name + "</b> Thank you for your inquiry we will respond to you as soon as possible!");
+                        $("#Name").val("");
+                        $("#Email").val("");
+                        $("#Subject").val("");
+                        $("#Message").val("");
+                        $(".form_error .name_error, .form_error .email_error, .form_error .email_val_error, .form_error .message_error").addClass("hide").removeClass("show");
+                        $("#name").val("");
+                        $("#email").val("");
+                        $("#subject").val("");
+                        $("#message").val("");
+                    }
                 }
             });
         }
