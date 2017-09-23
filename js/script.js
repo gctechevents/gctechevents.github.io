@@ -260,7 +260,7 @@ $(document).ready(function() {
                 url: 'https://zhmail.azurewebsites.net/api/techeventEmail?code=zvOpcwFL0pMQn/6dbyXVDYyAztz4PaLp87/ftSIsqElL7jago96szQ==',
                 data:JSON.stringify( {
                     name: name,
-                    emaild: emaild,
+                    emailId: emaild,
                     subject: subject,
                     message: message
                 }),
