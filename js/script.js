@@ -264,6 +264,8 @@ $(document).ready(function() {
                     subject: subject,
                     message: message
                 },
+                dataType: "json",
+                contentType: "application/json",
                 type: 'POST',
                 success: function(data) {
                     $(".Sucess").show();
